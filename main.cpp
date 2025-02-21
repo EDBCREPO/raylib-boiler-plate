@@ -1,16 +1,15 @@
 #include <nodepp/nodepp.h>
-#include <nodepp/worker.h>
+#include <raylib/game.h>
 
 using namespace nodepp;
-
-#include "assets/script/game.cpp"
-#include "assets/scenes/scene_0.cpp"
 
 void onMain() {
 
     rl::Init( 800, 600, 60, "Cursed Luna" );
 
-    rl::AppendScene( rl::scene::scene_0 );
+    rl::onDraw([](){
+        rl::DrawRectangle( 10, 10, 10, 10, rl::RED );
+    });
 
     rl::onClose([](){
         console::log("Closed");
